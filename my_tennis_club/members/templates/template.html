@@ -5,10 +5,51 @@ testing
 {% endblock %}
 
 {% block content %}
-{% for x in fruits %}
-    <h1>{{ x }}</h1>
+{% for x in mymembers %}
+    <h1>{{ x.firstname }}</h1>
+    <!-- {% with x='Banana' %}
+        <h2>Hello {{ x }}, how are you? </h2>
+    {% endwith %} -->
 {% endfor %}
+<h1>Hello {{ x }}, how are you? </h1>
 
 <p>In Views.py you can see what fruits variable looks like</p>
 
+{% if greeting == 1 %}
+    <h1>Hi</h1>
+{% elif greeting == 2 %}
+    <h1>Welcome</h1>
+{% elif greeting %}
+    <h1>Hello</h1>
+{% else %}
+    <h1>Good Bye</h1>
+{% endif %}
+
+<ul>
+    {% for x in mymembers %}
+      <li
+        {% if forloop.last %}
+        style = 'background-color :lightblue;'
+        {% endif %}
+    >{{ x }}</li>
+      
+    {% endfor %}
+  </ul> 
+
+  <ul>
+    {% for x in myobject %}
+      <li>{{ x.firstname }}</li>
+    {% empty %}
+      <li>No members</li>
+    {% endfor %}
+  </ul> 
+  
+<h1>Welcome Everyone</h1>
+{% comment "this was the original welcome message" %}
+    <h1>Welcome ladies and gentlemen</h1>
+{% endcomment %}
+
+<h1>Welcome{# Everyone#}</h1>
+
 {% endblock %}
+
