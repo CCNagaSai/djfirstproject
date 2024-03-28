@@ -29,7 +29,7 @@ def testing(request):
     mydata = Member.objects.filter(lastname='Refsnes', id=2).values()
     template = loader.get_template('template.html')
     context = {
-        'mydata' : mydata,
+        'mymembers' : mymembers,
         'greeting' : 5,
     }
     return HttpResponse(template.render(context, request))
